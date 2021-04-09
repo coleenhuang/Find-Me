@@ -51,3 +51,5 @@ var Component = (function () {
 	return Constructor;
 
 })();
+
+export default Component

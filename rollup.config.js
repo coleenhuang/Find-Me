@@ -6,7 +6,7 @@ import pkg from './package.json';
 // Configs
 var configs = {
 	name: 'BuildToolsCookbook',
-	files: ['main.js', 'game.js'],
+	files: ['main.js', 'component.js'],
 	formats: ['iife', 'es', 'amd', 'cjs'],
 	default: 'iife',
 	pathIn: 'src/js',
