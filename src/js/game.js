@@ -12,11 +12,11 @@ const game = new Component('[data-app]', {
         ]
     },
     template: function(props) {
-        return '<div class="grid">' + props.matrix.map(column => {
+        return '<div class="grid">' + props.matrix.map((row, rowIndex )=> {
             return (
-                '<div class="grid-column">' + column.map(item => (
-                    '<div class="grid-item">'+ item + '</div>'
-                )).join('')+'</div>' )
+                row.map((item, itemIndex )=> (
+                    `<div class="grid-item" key="r${rowIndex}c${itemIndex}">`+ item + '</div>'
+                )).join(''))
         }).join('') + '</div>';
     }
 })
