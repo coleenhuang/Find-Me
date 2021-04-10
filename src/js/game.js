@@ -1,10 +1,6 @@
 import Component from './component';
 
 
-
-
-
-
 const game = new Component('[data-app]', {
     data: {
         words: ['CAR', 'MARR', 'SHARK'],

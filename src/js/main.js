@@ -27,6 +27,7 @@ if (page === "game") {
         let row = e.target.getAttribute('data-row')
         let col = e.target.getAttribute('data-col')
         if(mousePressed) {
+            e.target.classList.add('selected')
             console.log(row, col)
         }
     })
