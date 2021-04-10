@@ -17,6 +17,7 @@ if (page === "game") {
     //render the game page
     game.render();
     const grid = document.querySelector('#grid');
+    
     let mousePressed = false;
 
     grid.addEventListener('mousedown', e => {
@@ -34,6 +35,8 @@ if (page === "game") {
 
     grid.addEventListener('mouseup', e => {
         mousePressed = false
+        const gridItems = document.querySelectorAll('.grid-item')
+        gridItems.forEach(el => el.classList.remove('selected'))
       } )
 
 
