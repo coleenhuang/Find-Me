@@ -17,7 +17,7 @@ if (page === 'start') {
 if (page === "game") {
     //render the game page
     renderGrid()
-    const grid = document.querySelector('#grid');
+   /* const grid = document.querySelector('#grid');
     const gridItems = document.querySelectorAll('.grid-item')
     let mousePressed = false;
     let prevCell = null;
@@ -70,7 +70,7 @@ if (page === "game") {
         currentCell = null;
         gridItems.forEach(el => el.classList.remove('selected'))
         selectedArray = [];
-    }
+    }*/
 
 
 }
