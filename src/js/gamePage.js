@@ -16,6 +16,7 @@ function renderGame() {
     let target = document.querySelector('[data-app]')
     target.innerHTML = generateGrid(matrix)+generateWordList(words)
     handleClicks();
+    
 }
 
 function generateGrid(gridMatrix) {
@@ -92,6 +93,7 @@ function handleClicks() {
     grid.addEventListener('mouseup', e => {
         mousePressed = false;
         resetSelection(gridItems);
+        endGame(words, found)
       } )
 }
 
@@ -105,6 +107,12 @@ function resetSelection(gridItems) {
     currentCell = null;
     gridItems.forEach(el => el.classList.remove('selected'))
     selectedArray = [];
+}
+
+function endGame(wordsArray, foundArray) {
+    if (foundArray.length === wordsArray.length) {
+        alert('Congrats!')
+    }
 }
 
 export default renderGame;
