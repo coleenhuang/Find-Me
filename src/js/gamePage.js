@@ -81,6 +81,9 @@ function handleClicks() {
             if(correctWord && !alreadyFound){
                 found.push(selectedWord)
                 document.querySelector(`div[value='${selectedWord}']`).classList.add('found')
+                let selectedEl = Array.from(document.querySelectorAll('.selected'));
+                selectedEl.forEach(node => 
+                    node.classList.add('correct'))
             }
             
         }
