@@ -41,7 +41,7 @@ if (page === "game") {
                 currentCell = nextCell
             }
 
-            if (prevCell.row !== nextCell.row) {
+            if (prevCell.row !== nextCell.row && prevCell.col !== nextCell.col ) {
                 resetSelection()
             }
 
