@@ -1,6 +1,7 @@
 import './components/_matches.polyfill.js';
 import './component'
 import game from './game';
+import renderGrid from './gamePage';
 
 
 //get the app container
@@ -15,7 +16,7 @@ if (page === 'start') {
 }
 if (page === "game") {
     //render the game page
-    game.render();
+    renderGrid()
     const grid = document.querySelector('#grid');
     const gridItems = document.querySelectorAll('.grid-item')
     let mousePressed = false;
@@ -23,8 +24,8 @@ if (page === "game") {
     let currentCell = null;
     let selectedArray = [];
 
+    
     grid.addEventListener('mousedown', e => {
-        game.setData({mousePressed: true})
         mousePressed = true
       });
     
@@ -32,8 +33,8 @@ if (page === "game") {
         let row = e.target.getAttribute('data-row')
         let col = e.target.getAttribute('data-col')
         let id = e.target.getAttribute('id')
-        let data = game.getData()
-        if(data.mousePressed) {
+        
+        if(mousePressed) {
             e.target.classList.add('selected')
             
             if(!prevCell) {
@@ -41,8 +42,8 @@ if (page === "game") {
             }
             let nextCell = {row, col, id};
             if(!currentCell) {
-                currentCell = nextCell
                 selectedArray.push(e.target.getAttribute('value'))
+                currentCell = nextCell
             }
             if (currentCell.id != nextCell.id) {
                 selectedArray.push(e.target.getAttribute('value'))
@@ -60,7 +61,7 @@ if (page === "game") {
     
 
     grid.addEventListener('mouseup', e => {
-        game.setData({mousePressed: false})
+        mousePressed = false;
         resetSelection();
       } )
 

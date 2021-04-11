@@ -11,9 +11,6 @@ const game = new Component('[data-app]', {
             ['U', 'S', 'R', 'O','A'],
             ['P', 'V', 'K', 'C','M'],
         ],
-        mousePressed: false,
-        prevCell: null,
-        currentCell: null,
         selectedArray: []
     },
     template: function(props) {
