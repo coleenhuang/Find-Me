@@ -21,6 +21,7 @@ if (page === "game") {
     let mousePressed = false;
     let prevCell = null;
     let currentCell = null;
+    let selectedArray = [];
 
     grid.addEventListener('mousedown', e => {
         mousePressed = true
@@ -32,33 +33,32 @@ if (page === "game") {
         
         if(mousePressed) {
             e.target.classList.add('selected')
-            console.log(row, col)
+            
             if(!prevCell) {
                 prevCell = {row, col}
             }
             let nextCell = {row, col};
-            if (nextCell) {
-                currentCell = nextCell
-            }
-
+            
             if (prevCell.row !== nextCell.row && prevCell.col !== nextCell.col ) {
                 resetSelection()
             }
-
+            selectedArray.push(e.target.getAttribute('value'))
+            console.log(selectedArray)
         }
     })
 
     
 
     grid.addEventListener('mouseup', e => {
-        mousePressed = false
-        
+        mousePressed = false;
+        resetSelection();
       } )
 
     function resetSelection() {
         prevCell = null;
         currentCell = null;
         gridItems.forEach(el => el.classList.remove('selected'))
+        selectedArray = [];
     }
 
 

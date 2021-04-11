@@ -19,6 +19,8 @@ const game = new Component('[data-app]', {
                     `<div class="grid-item" 
                     data-row=${rowIndex+1}
                     data-col=${colIndex+1}
+                    value=${item}
+                    id="r${rowIndex+1}c${colIndex+1}"
                     key="r${rowIndex+1}c${colIndex+1}">`+ item + '</div>'
                 )).join(''))
         }).join('') + '</div>';
