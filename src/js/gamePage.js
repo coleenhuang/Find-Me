@@ -7,7 +7,7 @@ const matrix=
         ['U', 'S', 'R', 'O','A'],
         ['P', 'V', 'K', 'C','M'],
     ];
-
+let found = [];
 let prevCell = null;
 let currentCell = null;
 let selectedArray = [];
@@ -67,6 +67,9 @@ function handleClicks() {
             }
             
             console.log(selectedArray)
+            let selectedCopy = [...selectedArray]
+            selectedCopy = selectedCopy.join("")
+            console.log(validateWord(words, selectedCopy))
         }
     })
 
@@ -74,6 +77,11 @@ function handleClicks() {
         mousePressed = false;
         resetSelection(gridItems);
       } )
+}
+
+function validateWord(wordsArray, selected) {
+    return wordsArray.includes(selected)
+     
 }
 
 function resetSelection(gridItems) {
