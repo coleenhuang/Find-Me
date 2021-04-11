@@ -10,7 +10,11 @@ const game = new Component('[data-app]', {
             ['V', 'C', 'A', 'R','R'],
             ['U', 'S', 'R', 'O','A'],
             ['P', 'V', 'K', 'C','M'],
-        ]
+        ],
+        mousePressed: false,
+        prevCell: null,
+        currentCell: null,
+        selectedArray: []
     },
     template: function(props) {
         return '<div id="grid">' + props.matrix.map((row, rowIndex )=> {

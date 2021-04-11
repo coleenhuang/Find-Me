@@ -24,6 +24,7 @@ if (page === "game") {
     let selectedArray = [];
 
     grid.addEventListener('mousedown', e => {
+        game.setData({mousePressed: true})
         mousePressed = true
       });
     
@@ -31,8 +32,8 @@ if (page === "game") {
         let row = e.target.getAttribute('data-row')
         let col = e.target.getAttribute('data-col')
         let id = e.target.getAttribute('id')
-        
-        if(mousePressed) {
+        let data = game.getData()
+        if(data.mousePressed) {
             e.target.classList.add('selected')
             
             if(!prevCell) {
@@ -59,7 +60,7 @@ if (page === "game") {
     
 
     grid.addEventListener('mouseup', e => {
-        mousePressed = false;
+        game.setData({mousePressed: false})
         resetSelection();
       } )
 
