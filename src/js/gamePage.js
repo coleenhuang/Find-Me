@@ -35,7 +35,7 @@ function generateGrid(gridMatrix) {
 
 function generateWordList(wordArray) {
     return '<div id="word-list">'+ wordArray.map(((word, index) => (
-        `<div class='word' key='w${index}'>${word}</div>`
+        `<div class='word' id='w${index} key='w${index}' value='${word}'>${word}</div>`
     ))).join('')+'</div>'
 }
 
@@ -72,11 +72,17 @@ function handleClicks() {
                 resetSelection(gridItems)
             }
             
-            console.log(selectedArray)
-            let selectedCopy = [...selectedArray]
-            selectedCopy = selectedCopy.join("")
-            console.log(validateWord(words, selectedCopy))
-            //push the found word to the found array
+            
+            let selectedWord = [...selectedArray]
+            selectedWord = selectedWord.join("");
+            let correctWord = validateWord(words, selectedWord); //checks for correct word
+            let alreadyFound = found.includes(selectedWord); //see if word is already found
+            
+            if(correctWord && !alreadyFound){
+                found.push(selectedWord)
+                document.querySelector(`div[value='${selectedWord}']`).classList.add('found')
+            }
+            
         }
     })
 
