@@ -1,6 +1,6 @@
 import './components/_matches.polyfill.js';
 
-import renderGrid from './gamePage';
+import renderGame from './gamePage';
 
 
 //get the app container
@@ -15,7 +15,7 @@ if (page === 'start') {
 }
 if (page === "game") {
     //render the game page
-    renderGrid()
+    renderGame()
 
 
 }

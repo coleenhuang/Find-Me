@@ -12,9 +12,9 @@ let prevCell = null;
 let currentCell = null;
 let selectedArray = [];
 
-function renderGrid() {
+function renderGame() {
     let target = document.querySelector('[data-app]')
-    target.innerHTML = generateGrid(matrix)
+    target.innerHTML = generateGrid(matrix)+generateWordList(words)
     handleClicks();
 }
 
@@ -31,6 +31,12 @@ function generateGrid(gridMatrix) {
                 key="r${rowIndex+1}c${colIndex+1}">`+ item + '</div>'
             )).join(''))
     }).join('') + '</div>'
+}
+
+function generateWordList(wordArray) {
+    return '<div id="word-list">'+ wordArray.map(((word, index) => (
+        `<div class='word' key='w${index}'>${word}</div>`
+    ))).join('')+'</div>'
 }
 
 function handleClicks() {
@@ -70,6 +76,7 @@ function handleClicks() {
             let selectedCopy = [...selectedArray]
             selectedCopy = selectedCopy.join("")
             console.log(validateWord(words, selectedCopy))
+            //push the found word to the found array
         }
     })
 
@@ -91,4 +98,4 @@ function resetSelection(gridItems) {
     selectedArray = [];
 }
 
-export default renderGrid;
+export default renderGame;
