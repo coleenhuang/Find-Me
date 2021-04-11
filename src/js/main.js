@@ -30,19 +30,28 @@ if (page === "game") {
     grid.addEventListener('mousemove', e => {
         let row = e.target.getAttribute('data-row')
         let col = e.target.getAttribute('data-col')
+        let id = e.target.getAttribute('id')
         
         if(mousePressed) {
             e.target.classList.add('selected')
             
             if(!prevCell) {
-                prevCell = {row, col}
+                prevCell = {row, col, id}
             }
-            let nextCell = {row, col};
+            let nextCell = {row, col, id};
+            if(!currentCell) {
+                currentCell = nextCell
+                selectedArray.push(e.target.getAttribute('value'))
+            }
+            if (currentCell.id != nextCell.id) {
+                selectedArray.push(e.target.getAttribute('value'))
+                currentCell = nextCell
+            }
             
             if (prevCell.row !== nextCell.row && prevCell.col !== nextCell.col ) {
                 resetSelection()
             }
-            selectedArray.push(e.target.getAttribute('value'))
+            
             console.log(selectedArray)
         }
     })
